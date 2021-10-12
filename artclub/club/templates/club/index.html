@@ -1,0 +1,48 @@
+{% extends 'club/base.html' %}
+{% block title %}Remians Art Club{% endblock %}
+{% load static %}
+{% block home_active %}active{% endblock %}
+{% block body %}
+
+    <!-- Header Start -->
+    <div class="container-fluid bg-primary px-0 px-md-5 mb-5">
+        <div class="row align-items-center px-3">
+            <div class="col-lg-6 text-center text-lg-left">
+                <h4 class="text-white mb-4 mt-5 mt-lg-0">Welcome!</h4>
+                <h1 class="display-3 font-weight-bold text-white">Remians Art Club</h1>
+                <p class="text-white mb-4">There are generally three distinct varieties of art clubs: Visual Arts Clubs, Performing Arts Clubs and Art Appreciation Clubs.</p>
+                <a href="{% url 'club:about' %}" class="btn btn-secondary mt-1 py-3 px-5">Learn More</a>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <img class="img-fluid mt-5" src="{% static 'club/img/header.png' %}" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+
+    <!-- Facilities Start -->
+    {% include 'club/facilities.html' %}
+    <!-- Facilities Start -->
+
+
+    <!-- About Start -->
+    {% include 'club/learnmore.html' %}
+    <!-- About End -->
+
+    <!-- Events Start -->
+    {% include 'club/mainevents.html' %}
+    <!-- Events End -->
+
+    <!-- Team Start -->
+    {% include 'club/mainteam.html' %}
+            <a href="{% url 'club:team' %}" class="btn btn-dark px-4 mx-auto mb-4">Full Panel</a>
+            </div>
+        </div>
+    </div>
+    <!-- Team End -->
+
+    <!-- Testimonial Start -->
+    {% include 'club/testimonial.html' %}
+    <!-- Testimonial End -->
+{% endblock %}
