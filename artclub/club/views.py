@@ -30,16 +30,19 @@ def contact(request):
         message = form.cleaned_data['message']
         form.save()
 
-        try:
-            send_mail(subject,name + ' ' + message + ' ' + from_email, from_email, ['arifulrian@gmail.com'], fail_silently=False)
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
-        return HttpResponse('Thank you for your message.')
-    context = {
-            "form": form,
-        }
-    return render(request, 'club/contact.html', context)
-
+        #try:
+            #send_mail(subject,name + ' ' + message + ' ' + from_email, from_email, ['arifulrian@gmail.com'], fail_silently=False)
+    #context = {
+            #"form": form,
+        #}
+        return render(request, 'club/contact.html', context={
+            'form': form,
+            'name': name,
+        })
+    else:
+        return render(request, 'club/contact.html', context={
+            'form': form,
+        })
 
 
 
